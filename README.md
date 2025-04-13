@@ -1,5 +1,4 @@
-# Interface.Interativa
-# Atualizando CSS com JavaScript
+# Interface Interativa Atualizando CSS com JavaScript
 
 Este projeto demonstra como atualizar variáveis CSS em tempo real utilizando JavaScript. Ele permite que o usuário ajuste dinamicamente o espaçamento, o desfoque e a cor base de uma imagem através de controles interativos.
 Foi desenvolvido juntamente ao curso JavaScript30.
