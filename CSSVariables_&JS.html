@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Atualizando o CSS com <span class="h1">JS</span></h2>
+
+    <div class="controls">
+        <label for="spacing">Spacing:</label>
+        <input type="range" name="spacing" min="10" max="200" value="10" data-sizing="px">
+
+        <label for="blur">Blur:</label>
+        <input type="range" name="blur" min="0" max="25" value="10" data-sizing="px">
+
+        <label for="base">Base:</label>
+        <input type="color" name="base" value="#ffc600">
+    </div>
+        <img src="http://unsplash.it/800/500?image=899">
+
+        <style>
+            :root {
+                --spacing: 10px;
+                --blur: 10px;
+                --base: #ffc600;
+            }
+        
+            * {
+                box-sizing: border-box;
+            }
+        
+            body {
+                margin: 0;
+                padding: 0;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                min-height: 100vh;
+                background-color: #f0f0f0;
+                color: #333;
+            }
+        
+            h2 {
+                font-size: 2rem;
+                margin-bottom: 20px;
+                color: var(--base);
+            }
+        
+            .h1 {
+                color: #111;
+                font-weight: bold;
+            }
+        
+            .controls {
+                display: flex;
+                gap: 20px;
+                align-items: center;
+                margin-bottom: 30px;
+                flex-wrap: wrap;
+                background: white;
+                padding: 20px 30px;
+                border-radius: 12px;
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            }
+        
+            .controls label {
+                font-weight: bold;
+                margin-right: 5px;
+            }
+        
+            .controls input[type="range"] {
+                cursor: pointer;
+            }
+        
+            img {
+                padding: var(--spacing);
+                background: var(--base);
+                filter: blur(var(--blur));
+                transition: all 0.2s ease;
+                border-radius: 12px;
+                box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+                max-width: 90%;
+            }
+        </style>        
+
+    <script>
+        const inputs = document.querySelectorAll('.controls input');
+
+        function handleUpdate() {
+            const suffix = this.dataset.sizing || '';
+            document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
+        }
+
+        inputs.forEach(input => input.addEventListener('change', handleUpdate));
+        inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
+    </script>
+</body>
+</html>
